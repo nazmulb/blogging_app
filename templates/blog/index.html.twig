@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<div>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{{ path('blog_post', {slug: post.slug}) }}">{{ post.title }}</a></li>
+        {% else %}
+            <li>No posts found</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

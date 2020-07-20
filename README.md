@@ -23,5 +23,12 @@ composer install
 symfony server:start
 ```
 
+### Create DB and run DB migration:
+
+```sh
+php bin/console doctrine:database:create
+php bin/console doctrine:migrations:migrate
+```
+
 ### Open your browser and use the below URL:
 `http://localhost:8000/`

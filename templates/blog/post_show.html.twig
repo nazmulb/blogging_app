@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<div>
+    <h1>{{ post.title }}</h1>
+
+    <p class="post-metadata">
+        <span class="metadata"><i class="fa fa-calendar"></i> {{ post.publishedAt|date("F jS \\a\\t g:ia") }}</span>
+    </p>
+
+    {{ post.content }}
+
+    {% for comment in post.comments %}
+        <div class="row post-comment">
+            <h4 class="col-sm-3">
+                <strong>{{ comment.publishedAt|date("F jS \\a\\t g:ia") }}</strong>
+            </h4>
+            <div class="col-sm-9">
+                {{ comment.content|escape }}
+            </div>
+        </div>
+    {% else %}
+        <div class="post-comment">
+            <p>No comments found.</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
