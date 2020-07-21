@@ -1,0 +1,16 @@
+<header>
+    <div class="navbar">
+        <form action="{{ path('blog_index') }}" method="get" class="form-inline my-2 my-lg-0">
+            <div class="form-group">
+                <input name="q"
+                    value="{{ app.request.query.get('q') }}"
+                    class="form-control mr-sm-2 search-field"
+                    placeholder="Search"
+                    autocomplete="off"
+                    autofocus
+                >
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</header>
