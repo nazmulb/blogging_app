@@ -6,10 +6,12 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import '../css/app.scss';
+import '../scss/app.scss';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
+
+// JS for public website
 
 var greet = function(name) {
     return `Yo yo ${name} - welcome to Encore!`;
@@ -19,4 +21,4 @@ $(document).ready(function() {
     $('body').prepend('<h1>'+greet('jill')+'</h1>');
 });
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+
