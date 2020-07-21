@@ -9,6 +9,14 @@
 import '../css/app.css';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
+import $ from 'jquery';
+
+var greet = function(name) {
+    return `Yo yo ${name} - welcome to Encore!`;
+};
+
+$(document).ready(function() {
+    $('body').prepend('<h1>'+greet('jill')+'</h1>');
+});
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
