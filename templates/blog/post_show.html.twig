@@ -3,27 +3,30 @@
 {% block title %}Post Details{% endblock %}
 
 {% block content %}
-<div>
-    <h1>{{ post.title }}</h1>
+<div class="box-card bp-post-details">
+    <h2 class="post-title">{{ post.title }}</h2>
 
-    <p class="post-metadata">
-        <span class="metadata"><i class="fa fa-calendar"></i> {{ post.publishedAt|date("F jS \\a\\t g:ia") }}</span>
+    <p class="post-date">
+        {{ post.publishedAt|date("F jS \\a\\t g:ia") }}
     </p>
 
-    {{ post.content }}
+    <p>{{ post.content }}</p>
+
+    
+    <form action="{{ path('blog_index') }}" method="get" class="form post-comment-form">
+        <div class="form-group">
+            <textarea class="form-control post-comment-form-input" name="comment" placeholder="Enter your comment here..."></textarea>
+            <button class="btn btn-secondary" type="submit">Post Comment</button>
+        </div>
+    </form>
 
     {% for comment in post.comments %}
-        <div class="row post-comment">
-            <h4 class="col-sm-3">
-                <strong>{{ comment.publishedAt|date("F jS \\a\\t g:ia") }}</strong>
-            </h4>
-            <div class="col-sm-9">
+        <div class="box-card post-comment">
+            <p class="post-comment-date">{{ comment.publishedAt|date("F jS \\a\\t g:ia") }}</p>
+            
+            <p class="post-comment-text">
                 {{ comment.content|escape }}
-            </div>
-        </div>
-    {% else %}
-        <div class="post-comment">
-            <p>No comments found.</p>
+            </p>
         </div>
     {% endfor %}
 </div>
