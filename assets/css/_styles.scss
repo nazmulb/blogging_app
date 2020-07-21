@@ -1,0 +1,8 @@
+// Include all common syles
+
+@import "variables";
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+@import "global";
