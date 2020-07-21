@@ -10,11 +10,12 @@ Please clone this repo:
 git clone https://github.com/nazmulb/blogging_app.git
 ```
 
-Please change directory to this project and install the dependencies with Composer: 
+Please change directory to this project and install the dependencies with composer and yarn: 
 
 ```sh
 cd blogging_app
 composer install
+yarn install
 ```
 
 ### Run the App:
