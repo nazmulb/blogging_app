@@ -6,7 +6,6 @@ use App\Entity\Post;
 use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Repository\PostRepository;
-use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,6 +30,30 @@ class BlogController extends AbstractController
     public function show(Post $post): Response
     {
         return $this->render('blog/post_show.html.twig', ['post' => $post]);
+    }
+
+    /**
+     * @Route("/comment/{slug}/new", methods="POST", name="comment_new")
+     */
+    public function commentNew(Request $request, Post $post): Response
+    {
+        $comment = new Comment();
+        $comment->setPublishedAt(new \DateTime('now'));
+        $post->addComment($comment);
+
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            //return $this->json(['message' => 'Added successfully', 'type' => 'success']);
+            return $this->redirectToRoute('blog_post', ['slug' => $post->getSlug()]);
+        }
+
+        return $this->json(['message' => 'Comment should not be empty', 'type' => 'error']);
     }
 
     public function commentForm(Post $post): Response

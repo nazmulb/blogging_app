@@ -1,4 +1,4 @@
-{{ form_start(form, {method: 'POST', action: path('blog_post', {'slug': post.slug}), attr: {'id': 'postCommentForm', 'class': 'form post-comment-form'} }) }}
+{{ form_start(form, {method: 'POST', action: path('comment_new', {'slug': post.slug}), attr: {'id': 'postCommentForm', 'class': 'form post-comment-form'} }) }}
     {# Render any global form error (e.g. when a constraint on a public getter method failed) #}
     {{ form_errors(form) }}
 
