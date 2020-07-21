@@ -1,17 +1,20 @@
-<header>
-    <div class="navbar">
-        <div class="basher">Welcome Nazmul</div>
-        <form action="{{ path('blog_index') }}" method="get" class="form-inline my-2 my-lg-0">
-            <div class="form-group">
-                <input name="q"
-                    value="{{ app.request.query.get('q') }}"
-                    class="form-control mr-sm-2 search-field"
-                    placeholder="Search"
-                    autocomplete="off"
-                    autofocus
-                >
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </div>
-        </form>
-    </div>
-</header>
+<nav class="navbar bp-navbar">
+    <ul class="navbar-nav bp-navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('blog_index') }}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('blog_index') }}">Logout</a>
+        </li>
+    </ul>
+    <form action="{{ path('blog_index') }}" method="get" class="form-inline my-2 my-lg-0">
+        <div class="form-group">
+            <input name="q"
+                value="{{ app.request.query.get('q') }}"
+                class="form-control mr-sm-2 search-field"
+                placeholder="Search"
+                autocomplete="off">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </div>
+    </form>
+</nav>

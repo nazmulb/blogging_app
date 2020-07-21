@@ -18,7 +18,7 @@ var greet = function(name) {
 };
 
 $(document).ready(function() {
-    $('body').prepend('<h1>'+greet('jill')+'</h1>');
+    //$('.footer-text').prepend(greet('jill'));
 });
 
 

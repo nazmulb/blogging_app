@@ -1,5 +1,51 @@
-body {
-    .nazmul {
-        background-color: blue;
+a {
+    color: $link-color;
+    text-decoration: none;
+  
+    &:hover,
+    &:active {
+      color: $link-color;
+      text-decoration: none;
+    }
+}
+
+.box-card {
+    padding: 1rem;
+    background: $box-background-color;
+    border: 0.06rem solid $box-border-color;
+    box-shadow: 0.13rem 0.13rem 0.5rem $box-shadow-color;
+    border-radius: 0.13rem;
+    box-sizing: border-box;
+}
+
+.bp-container {
+    .bp-header,
+    .bp-footer {
+        background-color: #fafafa;
+        border-radius: 0.5rem;
+    }
+
+    .bp-header {
+        padding: 0.6rem;
+
+        .bp-navbar-nav {
+            flex-direction: row;
+    
+            li {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .bp-footer {
+        margin-top: 10rem;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    
+
+    .bp-main {
+        margin: 2rem 0;
     }
 }

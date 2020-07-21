@@ -3,8 +3,14 @@
 
 // Styles for public website
 
-body {
-    .basher {
-        background-color: white;
+.bp-list {
+    margin-bottom: 1rem;
+    transition: all 0.2s linear;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0.19rem 0.75rem 0 rgba(0, 0, 0, 0.2),
+        0 0.06rem 0.9rem 0 rgba(0, 0, 0, 0.19);
     }
 }
