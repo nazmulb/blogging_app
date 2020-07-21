@@ -18,6 +18,12 @@ composer install
 yarn install
 ```
 
+### Compile App assets:
+
+```sh
+yarn encore dev
+```
+
 ### Run the App:
 
 ```sh
