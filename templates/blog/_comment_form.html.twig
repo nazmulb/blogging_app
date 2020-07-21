@@ -1,0 +1,15 @@
+{{ form_start(form, {method: 'POST', action: path('blog_post', {'slug': post.slug}), attr: {'id': 'postCommentForm', 'class': 'form post-comment-form'} }) }}
+    {# Render any global form error (e.g. when a constraint on a public getter method failed) #}
+    {{ form_errors(form) }}
+
+    <div class="form-group {% if not form.content.vars.valid %}has-error{% endif %}">
+        {# Render any errors for the "content" field (e.g. when a class property constraint failed) #}
+        {{ form_errors(form.content) }}
+
+        {{ form_widget(form.content, {attr: {'placeholder': 'Enter your comment here...', 'class': 'form-control post-comment-form-input'}}) }}
+        {{ form_help(form.content) }}
+
+        <button class="btn btn-secondary" type="submit">Post Comment</button>
+    </div>
+    
+{{ form_end(form) }}

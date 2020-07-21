@@ -12,13 +12,7 @@
 
     <p>{{ post.content }}</p>
 
-    
-    <form action="{{ path('blog_index') }}" method="get" class="form post-comment-form">
-        <div class="form-group">
-            <textarea class="form-control post-comment-form-input" name="comment" placeholder="Enter your comment here..."></textarea>
-            <button class="btn btn-secondary" type="submit">Post Comment</button>
-        </div>
-    </form>
+    {{ render(controller('App\\Controller\\BlogController::commentForm', {'id': post.id})) }}
 
     {% for comment in post.comments %}
         <div class="box-card post-comment">
