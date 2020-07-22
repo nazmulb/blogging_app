@@ -7,7 +7,7 @@
     <h2 class="post-title">{{ post.title }}</h2>
 
     <p class="post-date">
-        {{ post.publishedAt|date("F jS \\a\\t g:ia") }}
+        {{ post.publishedAt ? post.publishedAt|date("F jS \\a\\t g:ia") : '' }}
     </p>
 
     <p>{{ post.content }}</p>
@@ -17,7 +17,7 @@
     <div id="newPostComments"></div>
     {% for comment in post.comments %}
         <div class="box-card post-comment">
-            <p class="post-comment-date">{{ comment.publishedAt|date("F jS \\a\\t g:ia") }}</p>
+            <p class="post-comment-date">{{ comment.publishedAt ? comment.publishedAt|date("F jS \\a\\t g:ia") : '' }}</p>
             
             <p class="post-comment-text">
                 {{ comment.content|escape }}

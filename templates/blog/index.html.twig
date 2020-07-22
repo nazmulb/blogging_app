@@ -3,11 +3,10 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-
     {% for post in posts %}
-        <a href="{{ path('blog_post', {slug: post.slug}) }}"><div class="box-card bp-list">{{ post.title }}</div></a>
+        <a class="bp-list-a" href="{{ path('blog_post', {slug: post.slug}) }}"><div class="box-card bp-list">{{ post.title }}</div></a>
     {% else %}
-        <div class="box-card bp-list">No posts found</div>
+        <div class="box-card">No posts found</div>
     {% endfor %}
 
 {% endblock %}

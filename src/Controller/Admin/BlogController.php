@@ -22,7 +22,7 @@ class BlogController extends AbstractController
     public function index(PostRepository $postRepository): Response
     {
         return $this->render('admin/blog/index.html.twig', [
-            'posts' => $postRepository->findAll(),
+            'posts' => $postRepository->findBy([], ['publishedAt' => 'DESC']),
         ]);
     }
 
@@ -36,6 +36,8 @@ class BlogController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $post->setPublishedAt(new \DateTime('now'));
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($post);
             $entityManager->flush();
@@ -46,16 +48,6 @@ class BlogController extends AbstractController
         return $this->render('admin/blog/new.html.twig', [
             'post' => $post,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="admin_post_show", methods={"GET"})
-     */
-    public function show(Post $post): Response
-    {
-        return $this->render('admin/blog/show.html.twig', [
-            'post' => $post,
         ]);
     }
 

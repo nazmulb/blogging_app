@@ -3,38 +3,45 @@
 
 // Styles for public website
 
-.bp-list {
-  margin-bottom: 1rem;
-  transition: all 0.2s linear;
-  cursor: pointer;
+.bp-container {
+    .bp-list-a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
 
-  &:hover {
-    transform: scale(1.01);
-    box-shadow: 0 0.19rem 0.75rem 0 rgba(0, 0, 0, 0.2),
-      0 0.06rem 0.9rem 0 rgba(0, 0, 0, 0.19);
-  }
-}
+    .bp-list {
+        margin-bottom: 1rem;
+        transition: all 0.2s linear;
+        cursor: pointer;
 
-.bp-post-details {
-  .post-title {
-      font-size: 1.5rem;
-  }
+        &:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0.19rem 0.75rem 0 rgba(0, 0, 0, 0.2), 0 0.06rem 0.9rem 0 rgba(0, 0, 0, 0.19);
+        }
+    }
 
-  .post-date {
-      color: #666;
-  }
+    .bp-post-details {
+        .post-title {
+            font-size: 1.5rem;
+        }
 
-  .post-comment-form {
-      margin-bottom: 1rem;
+        .post-date {
+            color: #666;
+        }
 
-      .post-comment-form-input {
-          margin-bottom: 0.5rem;
-      }
-  }
+        .post-comment-form {
+            margin-bottom: 1rem;
 
-  .post-comment {
-      .post-comment-text {
-          margin-bottom: 0;
-      }
-  }
+            .post-comment-form-input {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .post-comment {
+            .post-comment-text {
+                margin-bottom: 0;
+            }
+        }
+    }
 }
