@@ -50,5 +50,11 @@ php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
 
+### Add dummy database user:
+
+```sh
+php bin/console doctrine:fixtures:load
+```
+
 ### Open your browser and use the below URL:
 `http://localhost:8000/`
