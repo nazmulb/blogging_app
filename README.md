@@ -30,6 +30,19 @@ yarn encore dev
 symfony server:start
 ```
 
+### Run Mysql server:
+
+Please use `MySQL 5.7.30` or higher.
+
+If you don't have then use the following:
+
+```sh
+docker run -d -p 3306:3306 --name db -e MYSQL_ROOT_PASSWORD=123 -v $PWD/mysql:/var/lib/mysql mysql:5.7
+docker logs -f db
+```
+
+Please don't forget to set the DATABASE_URL from `.env` file.
+
 ### Create DB and run DB migration:
 
 ```sh
