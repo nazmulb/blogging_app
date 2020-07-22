@@ -49,8 +49,8 @@ class BlogController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
-
-            return $this->json(['message' => 'Added successfully.', 'type' => 'success']);
+            
+            return $this->json(['content' => htmlspecialchars($comment->getContent()), 'publishedAt' => $comment->getPublishedAt()->format('F jS \\a\\t g:ia')]);
         }
 
         throw new HttpException(400, 'Bad request');

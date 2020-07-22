@@ -18,8 +18,6 @@ const resetMsg = function () {
 };
 
 $(document).ready(function () {
-  //$('.footer-text').prepend(greet('jill'));
-
   $("#postCommentForm").submit(function (e) {
     e.preventDefault(); // avoid to execute the actual submit of the form.
 
@@ -31,12 +29,15 @@ $(document).ready(function () {
       data: form.serialize(), // serializes the form's elements.
       success: function (data) {
         form.trigger("reset");
-        $('#newPostComments').append(`<p>${data.message}</p>`);
+        const newData = `<div class="box-card post-comment">
+                            <p class="post-comment-date">${data.content}</p>
+                            <p class="post-comment-text">${data.publishedAt}</p>
+                        </div>`;
+        $('#newPostComments').prepend(newData);
       },
       error: function (data) {
         console.log(data);
-        $('#msgCmt').append('<p class="alert alert-danger">Something went wrong.</p>');
-
+        $('#msgCmt').prepend('<p class="alert alert-danger">Something went wrong.</p>');
         setTimeout(resetMsg, 3000);
       },
     });
