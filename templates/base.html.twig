@@ -10,9 +10,25 @@
     <body>
         <div class="container bp-container">
             <header class="bp-header">
-                {% block header %}
-                    {{ include('_header.html.twig') }}
-                {% endblock %}
+                <nav class="navbar bp-navbar">
+                    <ul class="navbar-nav bp-navbar-nav mr-auto mt-2 mt-lg-0">
+                        {% block topnav %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('blog_index') }}">Home</a>
+                            </li>
+                        {% endblock %}
+                    </ul>
+                    <form action="{{ path('blog_index') }}" method="get" class="form-inline my-2 my-lg-0">
+                        <div class="form-group">
+                            <input name="q"
+                                value="{{ app.request.query.get('q') }}"
+                                class="form-control mr-sm-2 search-field"
+                                placeholder="Search"
+                                autocomplete="off">
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </nav>
             </header>
             <main class="bp-main">
                 {% block content %}{% endblock %}
@@ -21,6 +37,5 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-
     </body>
 </html>
