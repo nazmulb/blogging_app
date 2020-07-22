@@ -3,8 +3,15 @@
 
 // Styles for admin website
 
-body {
-    .admin {
-        background-color: black;
+.bp-container {
+    .bp-admin-post {
+
+        .page-title {
+            font-size: 1.5rem;
+        }
+
+        .admin-post-form {
+            margin-top: 1rem;
+        }
     }
 }

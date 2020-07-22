@@ -3,9 +3,9 @@
 {% block title %}Admin - New Post{% endblock %}
 
 {% block content %}
-    <h2>Create new Post</h2>
+<div class="box-card bp-admin-post">
+    <h2 class="page-title">Create new Post</h2>
 
     {{ include('admin/blog/_form.html.twig') }}
-
-    <a href="{{ path('admin_post_index') }}">back to list</a>
+</div>    
 {% endblock %}
