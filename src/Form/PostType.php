@@ -25,7 +25,9 @@ class PostType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content', TextareaType::class)
+            ->add('content', TextareaType::class, [
+                'attr' => ['rows' => 10],
+            ])
             ->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
                 /** @var Post */
                 $post = $event->getData();
