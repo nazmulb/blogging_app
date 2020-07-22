@@ -13,7 +13,8 @@
     <p>{{ post.content }}</p>
 
     {{ render(controller('App\\Controller\\BlogController::commentForm', {'id': post.id})) }}
-
+    <div id="msgCmt"></div>
+    <div id="newPostComments"></div>
     {% for comment in post.comments %}
         <div class="box-card post-comment">
             <p class="post-comment-date">{{ comment.publishedAt|date("F jS \\a\\t g:ia") }}</p>
