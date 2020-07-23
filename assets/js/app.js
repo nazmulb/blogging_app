@@ -33,11 +33,11 @@ $(document).ready(function () {
                             <p class="post-comment-date">${data.content}</p>
                             <p class="post-comment-text">${data.publishedAt}</p>
                         </div>`;
-        $('#newPostComments').prepend(newData);
+        $('#newPostComments').append(newData);
       },
       error: function (data) {
         console.log(data);
-        $('#msgCmt').prepend('<p class="alert alert-danger">Something went wrong.</p>');
+        $('#msgCmt').append('<p class="alert alert-danger">Something went wrong.</p>');
         setTimeout(resetMsg, 3000);
       },
     });
